@@ -35,7 +35,7 @@ class DocLayoutYOLOModel:
             coords = list(map(int, xyxy.tolist()))
             xmin, ymin, xmax, ymax = coords
             layout_res.append({
-                "category_id": int(cls.item()),
+                "category_id": (int(cls.item()) if int(cls.item()) != 2 else 1),
                 "poly": [xmin, ymin, xmax, ymin, xmax, ymax, xmin, ymax],
                 "score": round(float(conf.item()), 3),
             })
